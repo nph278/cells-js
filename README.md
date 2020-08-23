@@ -32,7 +32,7 @@ You can get an object of a CA from its code using `fromRuleCode`.
 
 ## Future projects
 
-I am currently working on adding 3+ color totalistic CA.
+I am currently working on adding 4+ color totalistic CA.
 
 
 Please report bugs and suggestions
