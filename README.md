@@ -14,7 +14,7 @@ Use `r22 = new ElementaryCA(22)` to create rule 22.
 
 This 3-step process can be automated with `r22.repeatupdate("00100",3)`.
 
-`ElementaryCA` is a constructor for the 256 elementary cellular automata.
+`Totalistic3CA` is a constructor for the 3-color totalistic rules.
 
 ## Codes
 
