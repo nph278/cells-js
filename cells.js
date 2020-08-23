@@ -2,12 +2,12 @@
 
 "use strict";
 
-function ElementaryCA(n) {								// The 256 elementary CA.
+function ElementaryCA(n) {								
 	this.ruleint = n;
 	this.rulecode = "e-"+n;
 }
 
-ElementaryCA.prototype.update = function(str) {			// Update a string.
+ElementaryCA.prototype.update = function(str) {			
 	var rule = this.ruleint.toString(2);
 	while(rule.length<8){
 		rule = "0"+rule;
@@ -21,7 +21,7 @@ ElementaryCA.prototype.update = function(str) {			// Update a string.
 	return newstr;
 };
 
-ElementaryCA.prototype.repeatupdate = function(str,int) {// Repetitively update a string.
+ElementaryCA.prototype.repeatupdate = function(str,int) {
 	var arr = [];
 	arr.push(str);
 	for (var i = 1; i < int; i++) {
@@ -36,11 +36,48 @@ function fromRuleCode(code) {
 	var family = code.split("-")[0];
 	if (family==="e") {
 		return new ElementaryCA(n);
+	} else if (family==="t3") {
+		return new Totalistic3CA(n);
 	} else {
 		throw new Error("cells-js: Invalid code "+code);
 	}
 }
 
 function ASCIIDrawCA(code,iter,str) {
-	return fromRuleCode(code).repeatupdate(str,iter).map(a=>a.split("1").join("#").split("0").join(" ")).join("\n")
+	var family = code.split("-")[0];
+	if (family==="e") {
+		return fromRuleCode(code).repeatupdate(str,iter).map(a=>a.split("1").join("#").split("0").join(" ")).join("\n");
+	}
+	if (family==="t3") {
+		return fromRuleCode(code).repeatupdate(str,iter).map(a=>a.split("2").join("#").split("1").join("+").split("0").join(" ")).join("\n");
+	}
 }
+
+function Totalistic3CA(n) {								
+	this.ruleint = n;
+	this.rulecode = "t3-"+n;
+}
+
+Totalistic3CA.prototype.update = function(str) {			
+	var rule = this.ruleint.toString(3);
+	while(rule.length<8){
+		rule = "0"+rule;
+	}
+	rule = rule.split("").reverse().join("");
+	var newstr = rule[Number(str[0])+Number(str[1])];
+	for (var i = 1; i < str.length-1; i++) {
+		newstr += rule[Number(str[i-1])+Number(str[i])+Number(str[i+1])];
+	}
+	newstr += rule[Number(str[str.length-2])+Number(str[str.length-1])];
+	return newstr;
+};
+
+Totalistic3CA.prototype.repeatupdate = function(str,int) {
+	var arr = [];
+	arr.push(str);
+	for (var i = 1; i < int; i++) {
+		str = this.update(str);
+		arr.push(str);
+	}
+	return arr;
+};
