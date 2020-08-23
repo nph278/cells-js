@@ -8,9 +8,9 @@
 
 Use `r22 = new ElementaryCA(22)` to create rule 22.
 
-`r22.update("00100")` will apply the rule once, yielding "01110".
+`r22.update("00100")` will apply the rule once, yielding `"01110"`.
 
-`r22.update("01110")` will apply the rule again, yielding "10001".
+`r22.update("01110")` will apply the rule again, yielding `"10001"`.
 
 This 3-step process can be automated with `r22.repeatupdate("00100",3)`.
 
