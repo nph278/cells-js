@@ -14,6 +14,8 @@ Use `r22 = new ElementaryCA(22)` to create rule 22.
 
 This 3-step process can be automated with `r22.repeatupdate("00100",3)`.
 
+`ElementaryCA` is a constructor for the 256 elementary cellular automata.
+
 ## Codes
 
 I am developing a code system for CA that my program can run.
@@ -22,9 +24,11 @@ I am developing a code system for CA that my program can run.
 
 `e` is the group for elementary CAs.
 
+`t3` is the group for 3-color totalistic CAs.
+
 You can get an object of a CA from its code using `fromRuleCode`.
 
-`ASCIIDrawCA(code,iter,str)` runs a CA and displays its output using `#` and ` `.
+`ASCIIDrawCA(code,iter,str)` runs a CA and displays its output using ASCII.
 
 ## Future projects
 
