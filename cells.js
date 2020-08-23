@@ -45,6 +45,9 @@ function fromRuleCode(code) {
 
 function ASCIIDrawCA(code,iter,str) {
 	var family = code.split("-")[0];
+	for (var i = 0; i < iter; i++) {
+		str="0"+str+"0";
+	}
 	if (family==="e") {
 		return fromRuleCode(code).repeatupdate(str,iter).map(a=>a.split("1").join("#").split("0").join(" ")).join("\n");
 	}
