@@ -30,6 +30,11 @@ You can get an object of a CA from its code using `fromRuleCode`.
 
 `ASCIIDrawCA(code,iter,str)` runs a CA and displays its output using ASCII.
 
+`ASCIIDrawCA` automatically adjusts the size of the input.
+
+Example: `ASCIIDrawCA("t3-1149",30,"1")`
+
+
 ## Future projects
 
 I am currently working on adding 4+ color totalistic CA.
