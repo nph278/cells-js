@@ -92,3 +92,21 @@ Totalistic3CA.prototype.repeatupdate = function(str,int) {
 	}
 	return arr;
 };
+
+function CanvasCA(canvas,code,iter,str) {
+	var ctx = canvas.getContext("2d");
+	ctx.clearRect(0,0,1000,1000);
+	var txt = ASCIIDrawCA(code,iter,str);
+	for (var i = 0; i < txt.split("\n").length; i++) {
+		for (var j = 0; j < txt.split("\n")[i].length; j++) {
+			if (txt.split("\n")[i][j]==="#") {
+				ctx.fillStyle="black";
+				ctx.fillRect(j*canvas.width/iter/2,i*canvas.height/iter/2,canvas.width/iter/2,canvas.height/iter/2);
+			}
+			if (txt.split("\n")[i][j]==="+") {
+				ctx.fillStyle="grey";
+				ctx.fillRect(j*canvas.width/iter/2,i*canvas.height/iter/2,canvas.width/iter/2,canvas.height/iter/2);
+			}
+		}
+	}
+}
