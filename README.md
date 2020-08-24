@@ -1,5 +1,5 @@
 # cells-js
-1D Cellular Automata in JavaScript.
+1D Cellular Automata in JavaScript. [Demo](https://nph278.github.io/cells-js/demo.html)
 
 
 ## Codes
