@@ -63,7 +63,7 @@ function Totalistic3CA(n) {
 
 Totalistic3CA.prototype.update = function(str) {			
 	var rule = this.ruleint.toString(3);
-	while(rule.length<8){
+	while(rule.length<7){
 		rule = "0"+rule;
 	}
 	rule = rule.split("").reverse().join("");
