@@ -48,12 +48,20 @@ function ASCIIDrawCA(code,iter,str) {
 	for (var i = 0; i < iter; i++) {
 		str="0"+str+"0";
 	}
+	var txt;
 	if (family==="e") {
-		return fromRuleCode(code).repeatupdate(str,iter).map(a=>a.split("1").join("#").split("0").join(" ")).join("\n");
+		txt=fromRuleCode(code).repeatupdate(str,iter).map(a=>a.split("1").join("#").split("0").join(" ")).join("\n");
 	}
 	if (family==="t3") {
-		return fromRuleCode(code).repeatupdate(str,iter).map(a=>a.split("2").join("#").split("1").join("+").split("0").join(" ")).join("\n");
+		txt=fromRuleCode(code).repeatupdate(str,iter).map(a=>a.split("2").join("#").split("1").join("+").split("0").join(" ")).join("\n");
 	}
+	while(!txt.split("\n").map(function(a) {return a[0]===" "}).includes(false)){
+		txt=txt.split("\n").map(a=>a.slice(1,a.length)).join("\n");
+	}
+	while(!txt.split("\n").map(function(a) {return a[a.length-1]===" "}).includes(false)){
+		txt=txt.split("\n").map(a=>a.slice(0,a.length-1)).join("\n");
+	}
+	return txt;
 }
 
 function Totalistic3CA(n) {								
