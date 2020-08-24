@@ -95,7 +95,7 @@ Totalistic3CA.prototype.repeatupdate = function(str,int) {
 
 function CanvasCA(canvas,code,iter,str) {
 	var ctx = canvas.getContext("2d");
-	ctx.clearRect(0,0,1000,1000);
+	ctx.clearRect(0,0,canvas.width,canvas.height);
 	var txt = ASCIIDrawCA(code,iter,str);
 	for (var i = 0; i < txt.split("\n").length; i++) {
 		for (var j = 0; j < txt.split("\n")[i].length; j++) {
