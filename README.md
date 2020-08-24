@@ -22,6 +22,11 @@ You can get an object of a CA from its code using `fromRuleCode`.
 
 Example: `ASCIIDrawCA("t3-1149",30,"1")`
 
+
+## Usage with JS Canvas
+
+`CanvasCA(canvas,code,iter,str)` displays a CA on a canvas. The `canvas` argument should be an html element.
+
 ## Further Usage
 
 
