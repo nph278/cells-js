@@ -48,4 +48,4 @@ This 3-step process can be automated with `r22.repeatupdate("00100",3)`.
 I am currently working on adding 4+ color totalistic CA.
 
 
-Please report bugs and suggestions
+Please report bugs and suggestions.
